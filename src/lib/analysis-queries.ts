@@ -1,6 +1,4 @@
-import { db } from "@/db";
-import { productionRecords, salesRecords } from "@/db/schema";
-import { sql } from "drizzle-orm";
+import { client } from "@/db";
 
 // 사용 가능한 차원 정의
 export const PRODUCTION_DIMENSIONS = {
@@ -127,11 +125,11 @@ export async function runAnalysis(params: AnalysisParams) {
     LIMIT 5000
   `;
 
-  const result = await db.execute(sql.raw(query)) as unknown as { rows: Record<string, unknown>[] };
+  const resultRows = await client.unsafe(query);
   return {
-    rows: result.rows,
+    rows: resultRows as Record<string, unknown>[],
     query,
-    totalRows: result.rows.length,
+    totalRows: resultRows.length,
   };
 }
 
@@ -155,6 +153,6 @@ export async function getDimensionValues(
     LIMIT 200
   `;
 
-  const result = await db.execute(sql.raw(query)) as unknown as { rows: Record<string, unknown>[] };
-  return result.rows;
+  const rows = await client.unsafe(query);
+  return rows as Record<string, unknown>[];
 }
