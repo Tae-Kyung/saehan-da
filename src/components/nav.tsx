@@ -16,7 +16,7 @@ export function Nav() {
     <nav className="border-b bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-14 gap-8">
-          <span className="font-bold text-lg tracking-tight">새한</span>
+          <span className="font-bold text-lg tracking-tight">새한프라텍</span>
           <div className="flex gap-1">
             {links.map((link) => {
               const isActive = link.href === "/"

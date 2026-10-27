@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "새한 생산계획 수립 시스템",
+  title: "새한프라텍 생산계획 수립 시스템",
   description: "생산·판매 실적 분석 대시보드",
 };
 
