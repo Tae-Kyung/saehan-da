@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "대시보드" },
+  { href: "/correlation", label: "상관분석" },
   { href: "/analysis", label: "다차원 분석" },
 ];
 
